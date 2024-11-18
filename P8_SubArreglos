@@ -10,7 +10,7 @@ int numSubarr(int* arr, int tamArr, int k, int t) {
             sum=sum+arr[j];
         }
         
-        if (sum>=k*t) {
+        if ((sum/k)>=t) {
             num++;
         }
     }
