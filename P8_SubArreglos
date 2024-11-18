@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int numSubarr(int* arr, int tamArr, int k, int t) {
+    int num=0, sum;
+    for (int i=0; i<=tamArr-k; i++) {
+        sum=0;
+        
+        for (int j=i; j<i+k; j++) {
+            sum=sum+arr[j];
+        }
+        
+        if (sum>=k*t) {
+            num++;
+        }
+    }
+    return num;
+}
+
+int main() {
+    int n, k, threshold;
+    
+    printf("Tamaño del arreglo: ");
+    scanf("%d", &n);
+
+    int* arr=(int*)malloc(n*sizeof(int));
+    printf("\nIngrese el arreglo:\n");
+    for (int i=0; i<n; ++i) {
+        printf("\tValor %d: ", i+1);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("\nk: ");
+    scanf("%d", &k);
+    printf("\nthreshold: ");
+    scanf("%d", &threshold);
+
+    int Subarr=numSubarr(arr, n, k, threshold);
+    printf("\nSubarreglos: %d\n", Subarr);
+
+    free(arr);
+    return 0;
+}
