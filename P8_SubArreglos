@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 int numSubarr(int* arr, int tamArr, int k, int t) {
-    int num=0, sum;
+    int num=0;
     for (int i=0; i<=tamArr-k; i++) {
-        sum=0;
+        int sum=0;
         
         for (int j=i; j<i+k; j++) {
             sum=sum+arr[j];
