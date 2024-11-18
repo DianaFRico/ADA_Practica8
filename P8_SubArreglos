@@ -22,18 +22,38 @@ int main() {
     
     printf("Tamaño del arreglo: ");
     scanf("%d", &n);
-
+    if (n<1 || n>100000){
+        printf("\tERROR. El tamaño del arreglo no esta en el rango 1 y 100000");
+        return 0;
+    }
+    
     int* arr=(int*)malloc(n*sizeof(int));
+    
     printf("\nIngrese el arreglo:\n");
     for (int i=0; i<n; ++i) {
         printf("\tValor %d: ", i+1);
         scanf("%d", &arr[i]);
+        if(arr[i]<1 || arr[i]>10000){
+            printf("\tERROR. El valor debe estar entre 1 y 10000\n");
+            i--;
+        }
+        
     }
 
+    
     printf("\nk: ");
     scanf("%d", &k);
+    if (k<1 || k>n){
+        printf("\tERROR. El tamaño del arreglo no esta entre 1 y el tamaño del arreglo.");
+        return 0;
+    }
+    
     printf("\nthreshold: ");
     scanf("%d", &threshold);
+    if (threshold<0 || threshold>10000){
+        printf("\tERROR. El tamaño del arreglo no esta en el rango 1 y 10000");
+        return 0;
+    }
 
     int Subarr=numSubarr(arr, n, k, threshold);
     printf("\nSubarreglos: %d\n", Subarr);
